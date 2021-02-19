@@ -1,0 +1,46 @@
+<div class="animated fadeIn">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-primary">
+                Relatório Extrato de Horas
+            </div>
+            <div class="card-body">
+
+                <form [formGroup]="formGroup">
+
+                    <div class="row">
+                        
+                        <div class="col-md-1 padding-label margin-right nowrap" style="margin-top: 6px;">
+                            <span>Período de:</span>
+                        </div>
+                        <div class="col-md-2">
+                            <div style="float: left;">
+                                <input class="form-control" formControlName="dataDe" type="date">
+                            </div>
+                        </div>
+
+                        <div class="col-md-1 padding-label margin-right nowrap" style="margin-top: 6px;">
+                            <span>Período até:</span>
+                        </div>
+                        <div class="col-md-2">
+                            <div style="float: left;">
+                                <input class="form-control" type="date" formControlName="dataAte">
+                            </div>
+                        </div>
+
+                        <div class="col-md-1">
+                            <button class="btn btn-primary" (click)="gerarRelatorio()" style="min-width: 60px;">
+                                <i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true" *ngIf="loading"></i>
+                                <span *ngIf="!loading">Gerar</span>
+                            </button>
+                        </div>
+                        
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+        
+  
