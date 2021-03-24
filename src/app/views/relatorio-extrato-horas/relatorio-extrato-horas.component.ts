@@ -44,7 +44,8 @@ export class RelatorioExtratoHorasComponent implements OnInit {
             this.excelSvc.gerarPlanilha('Extrato Periodo ' + this.formGroup.value.dataDe + ' a ' + this.formGroup.value.dataAte,
                                         dadosTratados.worksheetNames,
                                         dadosTratados.headers,
-                                        dadosTratados.rows);
+                                        dadosTratados.rows,
+                                        dadosTratados.totais);
             this.loading = false;
           },async (error: HttpErrorResponse) => {
 
@@ -71,6 +72,7 @@ export class RelatorioExtratoHorasComponent implements OnInit {
     let worksheetNames = [];
     let headers = [];
     let rows = [];
+    let totais = [];
     
     dados.map(d => {
       if(worksheetNames.indexOf(d.nome) < 0){
@@ -109,29 +111,6 @@ export class RelatorioExtratoHorasComponent implements OnInit {
         linha++;
 
       }
-
-      /*
-      let maximo = 0;
-      let data_atual = fil[0].data;
-      let tot_apontamentos = 0;
-      fil.map(f => {
-        
-        if(f.data === data_atual){
-          tot_apontamentos++;
-        }else{
-          if(tot_apontamentos > maximo){
-            maximo = tot_apontamentos;
-          }
-          data_atual = f.data;
-          tot_apontamentos = 0;
-        }
-      });
-
-      if(tot_apontamentos > maximo){
-        maximo = tot_apontamentos;
-        tot_apontamentos = 0;
-      }
-      */
 
       // monta o header de forma dinamica, de acordo com o maximo de apontamentos
       let header_analista = ['Dia','Sem'];
@@ -187,13 +166,20 @@ export class RelatorioExtratoHorasComponent implements OnInit {
       }
       
       rows.push(rows_analista);
+
+      totais.push({
+        valor_hora: fil[0].valor_hora_cliente,
+        horas_mes: fil[0].total_horas_dec,
+        valor_total_mes: fil[0].total_receber_tech_bruto
+      });
       
     });
 
     const dadosTratados = {
       worksheetNames: worksheetNames,
       headers: headers,
-      rows: rows
+      rows: rows,
+      totais: totais
     }
 
     return dadosTratados;
