@@ -21,6 +21,11 @@ export const navItems: INavData[] = [
     icon: 'icon-star'
   },
   {
+    name: 'Feriados',
+    url: '/feriados',
+    icon: 'icon-calendar'
+  },
+  {
     title: true,
     name: 'Relatórios'
   },

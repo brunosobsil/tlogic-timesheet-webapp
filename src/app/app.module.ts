@@ -49,6 +49,7 @@ import { RelatorioExtratoHorasComponent } from './views/relatorio-extrato-horas/
 import { UsuariosComponent } from './views/usuarios/usuarios.component';
 import { ClientesComponent } from './views/clientes/clientes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FeriadosComponent } from './views/feriados/feriados.component';
 
 @NgModule({
   imports: [
@@ -80,7 +81,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegisterComponent,
     RelatorioExtratoHorasComponent,
     UsuariosComponent,
-    ClientesComponent
+    ClientesComponent,
+    FeriadosComponent
   ],
   providers: [
     {

@@ -1,0 +1,95 @@
+<div class="animated fadeIn">
+    <div class="col-md-12">
+        
+        <div class="card">
+            <div class="card-header bg-primary">
+                Cadastro de Feriados
+            </div>
+            
+            <div class="card-body" [formGroup]="formGroup">
+
+                <div class="row">
+                    <div class="col-md-2 padding-label margin-right nowrap" style="margin-top: 6px;">
+                        <span>Data:</span>
+                    </div>
+                    <div class="col-md-2">
+                        <div>
+                            <input class="form-control" formControlName="data" type="date" [readonly]="isEditing">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 10px; margin-bottom: 10px;">
+                    <div class="col-md-2 padding-label margin-right nowrap" style="margin-top: 6px;">
+                        <span>Descrição:</span>
+                    </div>
+                    <div class="col-md-6 margin-right nowrap">
+                        <div>
+                            <input class="form-control" formControlName="descricao" type="text">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 margin-right nowrap">
+                        <button type="button" class="btn btn-primary" style="min-width: 100px;" (click)="salvar()">Salvar</button>
+                    </div>
+
+                    <div class="col-md-1 nowrap">
+                        <button type="button" 
+                                class="btn btn-secondary" 
+                                style="min-width: 100px; margin-left: -4.5em;"
+                                [hidden]="!isEditing"
+                                (click)="reset()">Cancelar</button>
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-top: 40px;">
+                    <div class="col-md-2 padding-label margin-right nowrap" style="margin-top: 6px;">
+                        <span>Pesquisar:</span>
+                    </div>
+                    <div class="col-md-4 margin-right nowrap">
+                        <div>
+                            <input class="form-control" type="text" placeholder="Pesquisar por data ou descrição..." (input)="pesquisar($event.target.value)">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="table-responsive table-hover table-bordered" style="margin-top: 10px;">
+                    <table class="table table-sm">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Data</th>
+                                <th>Descrição</th>
+                                <th colspan="2" style="text-align: center;">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let f of listaFeriados">
+                                <td style="width: 3em; text-align: center;">{{f.data | date: 'dd/MM/yyyy'}}</td>
+                                <td style="width: 70%;">{{f.descricao}}</td>
+                                <td style="text-align: center; max-width: 2em; cursor: pointer;" (click)="editar(f)">
+                                    
+                                    <i class="cil-pencil" style="color: blue;font-size: small;"></i>
+                                    <span style="font-size: small;">Editar</span>
+                                    
+                                </td>
+                                <td style="text-align: center; max-width: 2em; cursor: pointer;" (click)="excluir(f)">
+                                    <i class="cil-trash" style="color: red; font-size: small;"></i>
+                                    <span style="font-size: small;">Excluir</span>
+                                    
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+        </div>
+        
+    </div>
+</div>

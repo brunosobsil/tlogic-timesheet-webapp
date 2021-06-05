@@ -96,6 +96,10 @@ export const routes: Routes = [
       {
         path: 'clientes',
         loadChildren: () => import('./views/clientes/clientes.module').then(m => m.ClientesModule)
+      },
+      {
+        path: 'feriados',
+        loadChildren: () => import('./views/feriados/feriados.module').then(m => m.FeriadosModule)
       }
     ]
   },
