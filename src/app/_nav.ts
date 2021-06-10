@@ -35,6 +35,18 @@ export const navItems: INavData[] = [
     url: '/relatorio-extrato-horas',
     icon: 'icon-clock'
   },
+
+  {
+    title: true,
+    name: 'Configurações'
+  },
+
+  {
+    name: 'Importar Feriados',
+    url: '/importar-feriados',
+    icon: 'cil-data-transfer-down'
+  },
+
   
   /*
   {

@@ -1,0 +1,32 @@
+<div class="animated fadeIn">
+    <div class="col-md-12">
+        
+        <div class="card">
+            <div class="card-header bg-primary">
+                Importar Feriados
+            </div>
+            
+            <div class="card-body" [formGroup]="formGroup">
+
+                <p>
+                    Este programa irá efetuar a importação de feriados da api do sistema calendario.com.br.<br>
+                    Serão importados somente os feriados nacionais, estaduais e municipais do Rio de Janeiro.
+                </p>
+                <div class="row">
+                    <div class="col-md-2 padding-label margin-right nowrap" style="margin-top: 6px;">
+                        <span>Ano:</span>
+                    </div>
+                    <div class="col-md-2">
+                        <div>
+                            <input class="form-control" formControlName="ano" type="number">
+                        </div>
+                    </div>
+                    <div class="col-md-2 margin-right nowrap">
+                        <button type="button" class="btn btn-primary" style="min-width: 100px;" (click)="importar()">Importar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

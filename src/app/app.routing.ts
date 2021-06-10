@@ -100,7 +100,11 @@ export const routes: Routes = [
       {
         path: 'feriados',
         loadChildren: () => import('./views/feriados/feriados.module').then(m => m.FeriadosModule)
-      }
+      },
+      {
+        path: 'importar-feriados',
+        loadChildren: () => import('./views/importar-feriados/importar-feriados.module').then(m => m.ImportarFeriadosModule)
+      },
     ]
   },
   { path: '**', component: P404Component }
