@@ -10,8 +10,8 @@ import { Event } from '../interfaces/event-interface';
 })
 export class FeriadoService {
 
-    //private url: string = 'https://tlogic-timesheet-api-fv2ws.ondigitalocean.app/feriado';
-    private url: string = 'http://localhost:8080/feriado';
+    private url: string = 'https://tlogic-timesheet-api-fv2ws.ondigitalocean.app/feriado';
+    //private url: string = 'http://localhost:8080/feriado';
     private token_api_calendario = 'YnJ1bm8uc29icmFsLnNpbHZhQGdtYWlsLmNvbSZoYXNoPTMyMzk0MDUx';
 
     constructor(private loginSvc: LoginService, private http: HttpClient){}
